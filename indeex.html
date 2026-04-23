@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eJPTv2 Labs Dashboard</title>
+
+    <style>
+        /* إعدادات التصميم الأساسية */
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* إضافة خطوط بديلة */
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: #e2e8f0;
+            min-height: 100vh; /* لضمان تغطية الخلفية للشاشة بالكامل */
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #020617;
+            border-bottom: 1px solid #1e293b;
+        }
+
+            header h1 {
+                color: #38bdf8;
+            }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #020617;
+            border-radius: 12px;
+            border: 1px solid #1e293b;
+            transition: all 0.3s ease; /* إضافة حركة ناعمة عند الإخفاء/الظهور */
+        }
+
+            .section h2 {
+                color: #38bdf8;
+            }
+
+        .lab {
+            display: block;
+            margin: 6px 0;
+            padding: 10px;
+            background: #0f172a;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #e2e8f0;
+            transition: background 0.2s, color 0.2s; /* حركة ناعمة عند مرور الماوس */
+        }
+
+            .lab:hover {
+                background: #38bdf8;
+                color: black;
+            }
+
+        #search {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: none;
+            background: #1e293b;
+            color: white;
+            box-sizing: border-box; /* لمنع شريط البحث من الخروج عن حدود الشاشة */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>eJPTv2 Labs Dashboard</h1>
+    </header>
+
+    <div class="container">
+
+        <input type="text" id="search" placeholder="🔍 Search..." aria-label="Search Labs" onkeyup="searchLabs()">
+
+        <div class="section">
+            <h2>Recon / OSINT</h2>
+            <a class="lab" href="https://tryhackme.com/room/passiverecon" target="_blank">Passive Recon</a>
+            <a class="lab" href="https://tryhackme.com/room/activerecon" target="_blank">Active Recon</a>
+            <a class="lab" href="https://tryhackme.com/room/ohsint" target="_blank">OhSINT</a>
+            <a class="lab" href="https://tryhackme.com/room/googledorking" target="_blank">Google Dorking</a>
+            <a class="lab" href="https://tryhackme.com/room/shodan" target="_blank">Shodan</a>
+            <a class="lab" href="https://tryhackme.com/room/contentdiscovery" target="_blank">Content Discovery</a>
+            <a class="lab" href="https://tryhackme.com/room/sublist3r" target="_blank">Sublist3r</a>
+        </div>
+
+        <div class="section">
+            <h2>Enumeration</h2>
+            <a class="lab" href="https://tryhackme.com/room/furthernmap" target="_blank">Further Nmap</a>
+            <a class="lab" href="https://tryhackme.com/room/nmap01" target="_blank">Nmap Host Discovery</a>
+            <a class="lab" href="https://tryhackme.com/room/rustscan" target="_blank">RustScan</a>
+            <a class="lab" href="https://tryhackme.com/room/dnsindetail" target="_blank">DNS Enumeration</a>
+            <a class="lab" href="https://tryhackme.com/room/snmp" target="_blank">SNMP Enumeration</a>
+            <a class="lab" href="https://tryhackme.com/room/networkservices" target="_blank">SMTP / Network Services</a>
+            <a class="lab" href="https://tryhackme.com/room/smb" target="_blank">SMB Enumeration</a>
+            <a class="lab" href="https://tryhackme.com/room/kenobi" target="_blank">Kenobi</a>
+            <a class="lab" href="https://tryhackme.com/room/anonymous" target="_blank">Anonymous</a>
+            <a class="lab" href="https://tryhackme.com/room/basicpentestingjt" target="_blank">Basic Pentesting</a>
+            <a class="lab" href="https://tryhackme.com/room/hackernote" target="_blank">HackerNote</a>
+            <a class="lab" href="https://tryhackme.com/room/brooklynninenine" target="_blank">Brooklyn Nine Nine</a>
+        </div>
+
+        <div class="section">
+            <h2>Exploitation</h2>
+            <a class="lab" href="https://tryhackme.com/room/metasploitintro" target="_blank">Metasploit Intro</a>
+            <a class="lab" href="https://tryhackme.com/room/netcat" target="_blank">Netcat</a>
+            <a class="lab" href="https://tryhackme.com/room/linuxfundamentalspart3" target="_blank">Linux Fundamentals 3</a>
+            <a class="lab" href="https://tryhackme.com/room/hydra" target="_blank">Hydra</a>
+            <a class="lab" href="https://tryhackme.com/room/postexploit" target="_blank">Post Exploitation</a>
+            <a class="lab" href="https://tryhackme.com/room/windows10privesc" target="_blank">Windows Post Exploitation</a>
+            <a class="lab" href="https://tryhackme.com/room/crackthehash" target="_blank">Crack the Hash</a>
+            <a class="lab" href="https://tryhackme.com/room/ice" target="_blank">Ice</a>
+            <a class="lab" href="https://tryhackme.com/room/blue" target="_blank">Blue</a>
+            <a class="lab" href="https://tryhackme.com/room/blaster" target="_blank">Blaster</a>
+            <a class="lab" href="https://tryhackme.com/room/dejavu" target="_blank">Dejavu</a>
+            <a class="lab" href="https://tryhackme.com/room/source" target="_blank">Source</a>
+        </div>
+
+        <div class="section">
+            <h2>Web</h2>
+            <a class="lab" href="https://tryhackme.com/room/burpsuitebasics" target="_blank">Burp Suite</a>
+            <a class="lab" href="https://tryhackme.com/room/owasptop10" target="_blank">OWASP Top 10</a>
+            <a class="lab" href="https://tryhackme.com/room/ffuf" target="_blank">FFUF</a>
+            <a class="lab" href="https://tryhackme.com/room/webenumerationv2" target="_blank">Web Enum v2</a>
+            <a class="lab" href="https://tryhackme.com/room/fileuploadvulnerabilities" target="_blank">File Upload</a>
+            <a class="lab" href="https://tryhackme.com/room/webfundamentals" target="_blank">Web Fundamentals</a>
+            <a class="lab" href="https://tryhackme.com/room/owaspjuiceshop" target="_blank">Juice Shop</a>
+            <a class="lab" href="https://tryhackme.com/room/sqlinjection" target="_blank">SQL Injection</a>
+            <a class="lab" href="https://tryhackme.com/room/xss" target="_blank">XSS</a>
+            <a class="lab" href="https://tryhackme.com/room/commandinjection" target="_blank">Command Injection</a>
+            <a class="lab" href="https://tryhackme.com/room/vulnversity" target="_blank">Vulnversity</a>
+            <a class="lab" href="https://tryhackme.com/room/picklerick" target="_blank">Pickle Rick</a>
+            <a class="lab" href="https://tryhackme.com/room/cmspit" target="_blank">CMSpit</a>
+            <a class="lab" href="https://tryhackme.com/room/jason" target="_blank">Jason</a>
+            <a class="lab" href="https://tryhackme.com/room/overpass" target="_blank">Overpass</a>
+            <a class="lab" href="https://tryhackme.com/room/blog" target="_blank">Blog</a>
+        </div>
+
+        <div class="section">
+            <h2>Privilege Escalation</h2>
+            <a class="lab" href="https://tryhackme.com/room/linuxprivesc" target="_blank">Linux PrivEsc</a>
+            <a class="lab" href="https://tryhackme.com/room/windowsprivesc" target="_blank">Windows PrivEsc</a>
+            <a class="lab" href="https://tryhackme.com/room/linuxprivescarenas" target="_blank">PrivEsc Arenas</a>
+            <a class="lab" href="https://tryhackme.com/room/linuxprivilegeescalation" target="_blank">PrivEsc Techniques</a>
+            <a class="lab" href="https://tryhackme.com/room/rrootme" target="_blank">RootMe</a>
+            <a class="lab" href="https://tryhackme.com/room/agentsudoctf" target="_blank">Agent Sudo</a>
+            <a class="lab" href="https://tryhackme.com/room/wgelctf" target="_blank">Wgel CTF</a>
+        </div>
+
+        <div class="section">
+            <h2>Pivoting</h2>
+            <a class="lab" href="https://tryhackme.com/room/wreath" target="_blank">Wreath</a>
+            <a class="lab" href="https://tryhackme.com/room/pivoting" target="_blank">Pivoting</a>
+            <a class="lab" href="https://tryhackme.com/room/credentials" target="_blank">Credentials</a>
+            <a class="lab" href="https://tryhackme.com/room/vulnnetinternal" target="_blank">VulnNet Internal</a>
+        </div>
+
+        <div class="section">
+            <h2>Final Machines</h2>
+            <a class="lab" href="https://tryhackme.com/room/cowboyhacker" target="_blank">Bounty Hacker</a>
+            <a class="lab" href="https://tryhackme.com/room/ignite" target="_blank">Ignite</a>
+            <a class="lab" href="https://tryhackme.com/room/bolt" target="_blank">Bolt</a>
+            <a class="lab" href="https://tryhackme.com/room/startup" target="_blank">Startup</a>
+            <a class="lab" href="https://tryhackme.com/room/steelmountain" target="_blank">Steel Mountain</a>
+            <a class="lab" href="https://tryhackme.com/room/alfred" target="_blank">Alfred</a>
+        </div>
+
+    </div>
+
+    <script>
+        function searchLabs() {
+        // الحصول على النص المكتوب وتحويله لأحرف صغيرة
+        let input = document.getElementById("search").value.toLowerCase();
+        // الحصول على جميع الأقسام
+        let sections = document.getElementsByClassName("section");
+
+        // المرور على كل قسم للتحقق من محتواه
+        for (let i = 0; i < sections.length; i++) {
+        let section = sections[i];
+        let labs = section.getElementsByClassName("lab");
+        let hasVisibleLab = false; // متغير لمعرفة ما إذا كان هناك رابط ظاهر في هذا القسم
+
+        // المرور على جميع الروابط داخل القسم الحالي
+        for (let j = 0; j < labs.length; j++) {
+        let text = labs[j].innerText.toLowerCase();
+
+        if (text.includes(input)) {
+        labs[j].style.display = "block"; // إظهار الرابط
+        hasVisibleLab = true; // يوجد رابط واحد على الأقل مطابق
+        } else {
+        labs[j].style.display = "none"; // إخفاء الرابط
+        }
+        }
+
+        // إذا لم يكن هناك أي رابط مطابق، قم بإخفاء القسم بالكامل (بما في ذلك العنوان)
+        if (hasVisibleLab) {
+        section.style.display = "block";
+        } else {
+        section.style.display = "none";
+        }
+        }
+        }
+    </script>
+
+</body>
+</html>
